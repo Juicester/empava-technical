@@ -1,0 +1,12 @@
+type Todo @model {
+	id: ID!
+	name: String!
+	description: String
+	client: Client @connection(name: "ClientTodo")
+}
+
+type Client @model {
+	id: ID!
+	name: String!
+	todos: [Todo] @connection(name: "ClientTodo")
+}
